@@ -1,3 +1,0 @@
-C:/Users/Desta/Desktop/bst_project/cmake-build-debug/CMakeFiles/bst_project.dir
-C:/Users/Desta/Desktop/bst_project/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Desta/Desktop/bst_project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
