@@ -76,6 +76,9 @@ public:
 
     // Prints the data from the current node
     void print_node_information(Node * cur_node);
+
+    // Returns the head of the BST
+    Node * get_root(BST * tree);
 };
 
 #endif //BST_PROJECT_BST_H

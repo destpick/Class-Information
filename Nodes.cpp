@@ -9,6 +9,7 @@ Node:: Node(int id_num, string name, double gpa)
     m_student_id = id_num;
     m_student_name = name;
     m_student_gpa = gpa;
+
     m_left_child = nullptr;
     m_right_child = nullptr;
 }

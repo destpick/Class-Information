@@ -43,7 +43,7 @@ bool BST:: insert(Node * & root, int id, string name, double gpa) {
 
     else
     {
-        cout << "The node is a duplicate " << id << " has already be described" << endl;
+        cout << "The node is a duplicate. The student id " << id << " has already be distributed" << endl;
     }
 
     return successful;
