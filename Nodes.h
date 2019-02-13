@@ -13,19 +13,27 @@ using namespace std;
 class Node {
 
 private:
-    string m_data;
+    int m_student_id;
+    string m_student_name;
+    double m_student_gpa;
+
     Node * m_left_child;
     Node * m_right_child;
 
+
 public:
     // Constructor to create a new node with previous information
-    Node(const string &temp_data = "");
+    Node(int id_num, string name, double gpa);
 
-    // Obtains information from a node
-    string get_data() const;
+    // Obtains student name from the node
+    string get_student_name();
 
+    // Obtains student gpa from node
+    double get_student_gpa();
+
+    // Obtains student id from node
+    int get_student_id();
     // Obtains the left node from the BST
-    //
     Node * & get_left_child();
 
     // Obtains the right node from the BST
@@ -33,7 +41,7 @@ public:
     Node * & get_right_child();
 
     // Sets the data into a node
-    void set_data(const string & cur_data);
+    void set_student_info(int id_num, string name, double gpa);
 
     // Sets the node to the left side of the BST
     void set_left_child(Node * const cur_left_child);

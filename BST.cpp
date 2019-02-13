@@ -9,20 +9,20 @@ BST::BST(Node * new_tree)
     m_root = new_tree;
 }
 
-bool BST::insert(const string & cur_data)
+bool BST::insert(int id, string name, double gpa)
 {
     bool inserted_successfully = false;
-    inserted_successfully = insert(m_root, cur_data);
+    inserted_successfully = insert(m_root, id, name, gpa);
     return inserted_successfully;
 }
 
-bool BST:: insert(Node * & root, const string & cur_data) {
+bool BST:: insert(Node * & root, int id, string name, double gpa) {
     bool successful = false;
 
     // if base case has occurred
     if (root == nullptr) {
         Node *temp_node = nullptr;
-        temp_node = new Node(cur_data);
+        temp_node = new Node(id, name, gpa);
 
         if (temp_node != nullptr) {
             successful = true;
@@ -30,20 +30,20 @@ bool BST:: insert(Node * & root, const string & cur_data) {
         }
     }
     // step right subtree
-    else if (cur_data > (root)->get_data()) {
+    else if (id > (root)->get_student_id()) {
         // recursive step
-        successful = insert(((root)->get_right_child()), cur_data);
+        successful = insert(((root)->get_right_child()), id, name, gpa);
     }
 
     // step left subtree
-    else if (cur_data < (root)->get_data()) {
+    else if (id < (root)->get_student_id()) {
         // recursive step
-        successful = insert(((root)->get_left_child()), cur_data);
+        successful = insert(((root)->get_left_child()), id, name, gpa);
     }
 
     else
     {
-        cout << "The node is a duplicate " << cur_data << " has already be described" << endl;
+        cout << "The node is a duplicate " << id << " has already be described" << endl;
     }
 
     return successful;
@@ -74,7 +74,7 @@ void BST::in_order_traversal(Node  * root)
     if(root != nullptr)
     {
         in_order_traversal(root -> get_left_child());
-        cout << root->get_data() << endl;
+        print_node_information(root);
         in_order_traversal(root -> get_right_child());
     }
 }
@@ -83,7 +83,7 @@ void BST:: pre_order_traversal(Node * root)
 {
     if(root != nullptr)
     {
-        cout << root -> get_data() << endl;
+        print_node_information(root);
         pre_order_traversal(root -> get_left_child());
         pre_order_traversal(root -> get_right_child());
     }
@@ -95,7 +95,7 @@ void BST:: post_order_traversal(Node * root)
     {
         post_order_traversal(root -> get_left_child());
         post_order_traversal(root -> get_right_child());
-        cout << root -> get_data() << endl;
+        print_node_information(root);
     }
 }
 
@@ -104,7 +104,15 @@ void BST:: reverse_order_traversal(Node * root)
     if(root != nullptr)
     {
         reverse_order_traversal(root -> get_right_child());
-        cout << root -> get_data() << endl;
+        print_node_information(root);
         reverse_order_traversal(root -> get_left_child());
     }
+}
+
+void BST:: print_node_information(Node * current_node)
+{
+    cout << "Student Name: " << current_node -> get_student_name() << endl;
+    cout << "Student Id: " << current_node -> get_student_id() << endl;
+    cout << "Student GPA: " << current_node -> get_student_gpa() << endl;
+    cout << " =================" << endl;
 }

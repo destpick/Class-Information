@@ -16,7 +16,7 @@ private:
 
     // Insert private information into the BST which insures only class
     //      the function to be called within the specific class
-    bool insert(Node * &cur_tree, const string &cur_data);
+    bool insert(Node * &cur_tree, int id, string name, double gpa);
 
     /*
      * Print the tree in order based on the root
@@ -60,7 +60,7 @@ public:
     BST(Node * new_tree = nullptr);
 
     // Inserts the data into the BST
-    bool insert(const string & input_data);
+    bool insert(int id, string name, double gpa);
 
     // Calls the private in order traversal function
     void in_order_traversal();
@@ -74,6 +74,8 @@ public:
     // Calls the private reversed order traversal function
     void reverse_order_traversal();
 
+    // Prints the data from the current node
+    void print_node_information(Node * cur_node);
 };
 
 #endif //BST_PROJECT_BST_H

@@ -4,21 +4,34 @@
 
 #include "Nodes.h"
 
-Node:: Node(const string & cur_data)
+Node:: Node(int id_num, string name, double gpa)
 {
-    m_data = cur_data;
+    m_student_id = id_num;
+    m_student_name = name;
+    m_student_gpa = gpa;
     m_left_child = nullptr;
     m_right_child = nullptr;
 }
 
-string Node:: get_data() const
+string Node::get_student_name()
 {
-    return m_data;
+    return m_student_name;
 }
 
-void Node:: set_data(const string & cur_data)
+double Node:: get_student_gpa()
 {
-    m_data = cur_data;
+    return m_student_gpa;
+}
+
+int Node::get_student_id()
+{
+    return m_student_id;
+}
+void Node:: set_student_info(int id, string name, double gpa)
+{
+    m_student_id = id;
+    m_student_gpa = gpa;
+    m_student_name = name;
 }
 
 Node * & Node:: get_left_child()
